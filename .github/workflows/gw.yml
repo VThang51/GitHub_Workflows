@@ -21,54 +21,6 @@ on:
       CM1:
         description: 'Command 1'
         required: false
-      CM2:
-        description: 'Command 2'
-        required: false
-      CM3:
-        description: 'Command 3'
-        required: false
-      CM4:
-        description: 'Command 4'
-        required: false
-      CM5:
-        description: 'Command 5'
-        required: false
-      CM6:
-        description: 'Command 6'
-        required: false
-      CM7:
-        description: 'Command 7'
-        required: false
-      PATH:
-        description: 'Export file (File/Folder)'
-        required: false
-jobs:
-  Actions:
-    runs-on: ubuntu-20.04
-    permissions: read-all|write-all
-name: GitHub Workflows
-on:
-  workflow_dispatch:
-    inputs:
-      FS:
-        description: 'Do you want to free up space before running? (This process takes about 5 minutes)'
-        required: true
-        default: 'no'
-        type: choice
-        options:
-          - 'no'
-          - 'yes'
-      ERROR:
-        description: 'Keep running when command fails?'
-        required: true
-        default: 'true'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
-      CM1:
-        description: 'Command 1'
-        required: false
         default: ''
       CM2:
         description: 'Command 2'
