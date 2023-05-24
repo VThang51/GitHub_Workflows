@@ -53,7 +53,20 @@ on:
 jobs:
   Actions:
     runs-on: ubuntu-20.04
-    permissions: read-all|write-all
+    permissions:
+      actions: read|write
+      checks: read|write
+      contents: read|write
+      deployments: read|write
+      id-token: read|write
+      issues: read|write
+      discussions: read|write
+      packages: read|write
+      pages: read|write
+      pull-requests: read|write
+      repository-projects: read|write
+      security-events: read|write
+      statuses: read|write
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -73,11 +86,11 @@ jobs:
       - name: Running Command 3
         run: ${{ inputs.CM3 }}
         continue-on-error: ${{ inputs.ERROR }}
-        
+
       - name: Running Command 4
         run: ${{ inputs.CM4 }}
         continue-on-error: ${{ inputs.ERROR }}
-        
+
       - name: Running Command 5
         run: ${{ inputs.CM5 }}
         continue-on-error: ${{ inputs.ERROR }}
