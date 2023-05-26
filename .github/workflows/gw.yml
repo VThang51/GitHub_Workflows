@@ -54,19 +54,19 @@ jobs:
   Actions:
     runs-on: ubuntu-20.04
     permissions:
-      actions: read|write
-      checks: read|write
-      contents: read|write
-      deployments: read|write
-      id-token: read|write
-      issues: read|write
-      discussions: read|write
-      packages: read|write
-      pages: read|write
-      pull-requests: read|write
-      repository-projects: read|write
-      security-events: read|write
-      statuses: read|write
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      id-token: write
+      issues: write
+      discussions: write
+      packages: write
+      pages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses: write
     steps:
       - name: Checkout
         uses: actions/checkout@master
