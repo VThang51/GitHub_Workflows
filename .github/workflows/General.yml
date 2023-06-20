@@ -46,8 +46,8 @@ on:
         description: 'Command 7'
         required: false
         default: ''
-      PATH:
-        description: 'Export file (File/Folder)'
+      CF:
+        description: 'Compress File'
         required: false
         default: ''
 jobs:
@@ -103,8 +103,12 @@ jobs:
         run: ${{ inputs.CM7 }}
         continue-on-error: ${{ inputs.ERROR }}
 
+      - name: Compress File
+        run: zip -r /home/runner/work/GitHub_Workflows/GitHub_Workflows/Artifacts.zip /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.CF }}
+        continue-on-error: ${{ inputs.ERROR }}
+
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: Exported File
-          path: ${{ inputs.PATH }}
+          path: /home/runner/work/GitHub_Workflows/GitHub_Workflows/Artifacts.zip
