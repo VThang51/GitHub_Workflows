@@ -72,7 +72,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Free up space
-        run: bash sh/1_${{ inputs.FS }}.sh
+        run: bash sh/${{ inputs.FS }}.sh
         continue-on-error: ${{ inputs.ERROR }}
 
       - name: Running Command 1
