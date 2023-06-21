@@ -79,5 +79,6 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Kernel.zip
-          path: arch/arm64/boot/Image
-          path: drivers/*/*.ko
+          path: |
+            arch/arm64/boot/Image
+            drivers/*/*.ko
