@@ -78,7 +78,7 @@ jobs:
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Kernel.zip
+          name: Kernel
           path: |
             kernel/arch/arm64/boot/Image
             kernel/*/*.ko
