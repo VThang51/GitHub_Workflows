@@ -80,5 +80,5 @@ jobs:
         with:
           name: Kernel
           path: |
-            arch/arm64/boot/Image
-            drivers/*/*.ko
+            kernel/arch/arm64/boot/Image
+            kernel/drivers/*/*.ko
