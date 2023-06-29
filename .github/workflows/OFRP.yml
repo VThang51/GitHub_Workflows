@@ -92,8 +92,9 @@ jobs:
           curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
           chmod a+x ~/bin/repo
           sudo ln -sf ~/bin/repo /usr/bin/repo
-          git clone https://gitlab.com/OrangeFox/misc/scripts ~/scripts
-          cd ~/scripts
+          cd ~
+          git clone https://gitlab.com/OrangeFox/misc/scripts
+          cd scripts
           sudo bash setup/android_build_env.sh
           sudo bash setup/install_android_sdk.sh
         continue-on-error: true
