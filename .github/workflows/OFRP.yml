@@ -83,9 +83,6 @@ jobs:
         uses: actions/checkout@master
 
       - name: Free up space
-        run: bash sh/RP/unin.sh
-
-      - name: Free up space
         run: bash sh/freeupspace.sh -yes
 
       - name: Set up the Compilation environment
