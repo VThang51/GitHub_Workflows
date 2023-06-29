@@ -1,6 +1,8 @@
 ##############################################
 ## Currently this is broken, cannot be used ##
 ##############################################
+##   Please fork it and Re-edit this file   ##
+##############################################
 name: OrangeFox-RP Builder
 on:
   workflow_dispatch:
@@ -83,14 +85,18 @@ jobs:
       - name: Free up space
         run: bash sh/RP/unin.sh
 
+      - name: Free up space
+        run: bash sh/freeupspace.sh -yes
+
       - name: Set up the Compilation environment
         run: |
-          sed -i '11d' sh/RP/sudo.sh
-          bash sh/RP/sudo.sh
-          sudo apt install python-is-python2
-          cd ~
-          git clone https://gitlab.com/OrangeFox/misc/scripts
-          cd scripts
+          sudo apt-get -y install bc build-essential zip curl libstdc++6 git wget python-is-python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make
+          mkdir ~/bin
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+          chmod a+x ~/bin/repo
+          sudo ln -sf ~/bin/repo /usr/bin/repo
+          git clone https://gitlab.com/OrangeFox/misc/scripts ~/scripts
+          cd ~/scripts
           sudo bash setup/android_build_env.sh
           sudo bash setup/install_android_sdk.sh
         continue-on-error: true
@@ -103,13 +109,12 @@ jobs:
 
       - name: Sync Source
         run: |
-          cd ~/ofrp/sync/
+          cd ~/ofrp/sync
           ./${{ inputs.SYNC_FILE }} --branch ${{ inputs.BRANCH }} --path ~/ofrp --ssh ${{ inputs.SSH }}
 
       - name: Clone Device Tree
         run: |
-          cd ~/ofrp
-          git clone -b ${{ inputs.DEVICE_TREE_BRANCH }} ${{ inputs.DEVICE_TREE_URL }} device/${{ inputs.BRAND }}/${{ inputs.DEVICE_CODE }}
+          git clone -b ${{ inputs.DEVICE_TREE_BRANCH }} ${{ inputs.DEVICE_TREE_URL }} ~/ofrp/device/${{ inputs.BRAND }}/${{ inputs.DEVICE_CODE }}
           
       - name: Compile Custom Recovery 
         run: |
