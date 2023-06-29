@@ -87,13 +87,17 @@ jobs:
 
       - name: Set up the Compilation environment
         run: |
+          export REPO=$(mktemp /tmp/repo.XXXXXXXXX)
+          curl -o ${REPO} https://storage.googleapis.com/git-repo-downloads/repo
+          gpg --recv-key 8BB9AD793E8E6153AF0F9A4416530D5E920F5C65
+          curl -s https://storage.googleapis.com/git-repo-downloads/repo.asc | gpg --verify - ${REPO} && install -m 755 ${REPO} ~/bin/repo
           sudo apt-get -y install bc build-essential zip curl libstdc++6 git wget python-is-python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make repo
           git clone https://gitlab.com/OrangeFox/misc/scripts
           cd scripts
           sudo bash setup/android_build_env.sh
           sudo bash setup/install_android_sdk.sh
         continue-on-error: true
-        
+
       - name: Sync Minimal Manifest
         run: |
           mkdir ~/ofrp
