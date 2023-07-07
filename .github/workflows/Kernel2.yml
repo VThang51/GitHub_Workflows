@@ -1,4 +1,4 @@
-name: Kernel Builder
+name: Kernel Builder v2
 on:
   workflow_dispatch:
     inputs:
