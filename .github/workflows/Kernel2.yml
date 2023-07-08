@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Free up space
-        run: bash sh/freeupspace.sh -yes
+        run: bash sh/freeupspace.sh -no
 
       - name: Set up the Compilation environment
         run: sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip
@@ -45,6 +45,4 @@ jobs:
         with:
           name: Kernel
           path: |
-            android-kernel/device/samsung/a13xx/arch/arm64/boot/Image
-            android-kernel/device/samsung/a13xx/drivers/*/*.ko
-            out/common-android13-5.10-lts/dist
+            android-kernel
