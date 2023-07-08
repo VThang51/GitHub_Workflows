@@ -38,7 +38,7 @@ jobs:
       - name: Build Kernel
         run: |
           cd android-kernel
-          . build/build.sh
+          # . build/build.sh
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
