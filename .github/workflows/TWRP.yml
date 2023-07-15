@@ -34,7 +34,7 @@ on:
       DEVICE_TREE_BRANCH:
         description: 'Device Tree Branch'
         required: true
-        default: 'master'
+        default: 'TWRP'
       BRAND:
         description: 'Brand'
         required: true
@@ -42,7 +42,7 @@ on:
       DEVICE_CODE:
         description: 'Device Code'
         required: true
-        default: 'a13x'
+        default: 'a13'
       ADD_MAKE:
         description: 'Add "make"'
         required: false
@@ -80,24 +80,8 @@ jobs:
 
       - name: Set up the Compilation environment
         run: |
-          sudo apt-get -y install bc
-          sudo apt-get -y install build-essential
-          sudo apt-get -y install zip
-          sudo apt-get -y install curl
-          sudo apt-get -y install libstdc++6
-          sudo apt-get -y install git
-          sudo apt-get -y install wget
-          sudo apt-get -y install python3
-          sudo apt-get -y install python2
-          sudo apt-get -y install gcc
-          sudo apt-get -y install clang
-          sudo apt-get -y install libssl-dev
-          sudo apt-get -y install rsync
-          sudo apt-get -y install flex
-          sudo apt-get -y install bison
-          sudo apt-get -y install aria2
-          sudo apt-get -y install openjdk-8-jdk
-          sudo apt-get -y install make
+          sudo apt-get update
+          sudo apt-get install bc build-essential zip curl libstdc++6 git wget python3 python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk install make
 
       - name: Install Repo
         run: |
