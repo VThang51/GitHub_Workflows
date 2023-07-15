@@ -81,6 +81,9 @@ jobs:
       - name: Set up the Compilation environment
         run: |
           sudo apt-get -y install bc build-essential zip curl libstdc++6 git wget python python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make
+
+      - name: Install Repo
+        run: |
           mkdir ~/bin
           curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
           chmod a+x ~/bin/repo
