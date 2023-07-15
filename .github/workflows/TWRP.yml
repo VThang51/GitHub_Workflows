@@ -76,7 +76,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Run sudo.sh
-        run: bash sh/freeupspace.sh -freespace -setuptwrp -installrepo
+        run: bash sh/sudo.sh -freespace -setuptwrp -installrepo
 
       - name: Install Repo
         run: |
