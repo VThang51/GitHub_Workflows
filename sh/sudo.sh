@@ -1,4 +1,37 @@
-if [ "$1" = "-yes" ]; then
+#!/bin/bash
+
+freespace=false
+installrepo=false
+no=false
+setuptwrp=false
+
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+        -freespace)
+            freespace=true
+            shift
+            ;;
+        -installrepo)
+            installrepo=true
+            shift
+            ;;
+        -no)
+            no=true
+            shift
+            ;;
+        -setuptwrp)
+            setuptwrp=true
+            shift
+            ;;
+        *)
+            echo "Error: $key"
+            exit 1
+            ;;
+    esac
+done
+
+if $freespace; then
   sudo apt remove moby-buildx moby-cli moby-compose moby-containerd moby-engine moby-runc podman buildah skopeo containers-common temurin-*-jdk adoptopenjdk-* adoptium-ca-certificates openjdk-* ant ant-optional postgresql-* libpq-dev libmysqlclient* msodbcsql* mssql-tools unixodbc-dev mysql-client* mysql-common mysql-server* php*-*sql sphinxsearch mongodb* firefox google-chrome-stable microsoft-edge-stable xvfb apache2 apache2-* nginx nginx-* php-* php7* php8* session-manager-plugin azure-cli google-cloud-sdk gh subversion mercurial vim vim-* dotnet* aspnetcore* mono-* mono* libmono-* libmono* monodoc* msbuild nuget ruby* rake ri g++-10 g++-12 gcc-10 gcc-12 gfortran-* clang-* libclang* llvm-* libllvm* lldb-* lld-* clang-format-* clang-tidy-* powershell r-base* r-cran* r-doc* r-recommended snapd man-db manpages libgtk-3-* ubuntu-mono *-icon-theme esl-erlang imagemagick imagemagick-6-common libgl1-mesa-dri firebird* hhvm python python2
   sudo rm -rf /home/linuxbrew
   sudo rm -rf /usr/bin/docker-credential-ecr-login
@@ -161,8 +194,20 @@ if [ "$1" = "-yes" ]; then
   sudo rm -rf /usr/local/share/boost
   sudo rm -rf "$AGENT_TOOLSDIRECTORY"
   df -h
-elif [ "$1" = "-no" ]; then
-  echo "Doesn't free up space"
-else
-  echo "Invalid command"
+fi
+
+if $installrepo; then
+    mkdir ~/bin
+    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    chmod a+x ~/bin/repo
+    sudo ln -sf ~/bin/repo /usr/bin/repo
+fi
+
+if $no; then
+    echo "Skip sudo.sh file"
+fi
+
+if $setuptwrp; then
+    sudo apt update
+    sudo apt install bc build-essential zip curl libstdc++6 git wget python3 python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk install make
 fi
