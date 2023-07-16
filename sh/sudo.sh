@@ -212,5 +212,5 @@ fi
 
 if $setuptwrp; then
     sudo apt update
-    sudo apt install bc build-essential zip curl libstdc++6 git wget python python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make
+    sudo apt install bc build-essential zip curl libstdc++6 git wget python-is-python3 python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make
 fi
