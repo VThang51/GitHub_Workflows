@@ -1,6 +1,7 @@
 #!/bin/bash
 
 freespace=false
+installrepo=false
 no=false
 setuptwrp=false
 
@@ -9,6 +10,10 @@ while [[ $# -gt 0 ]]; do
     case $key in
         -freespace)
             freespace=true
+            shift
+            ;;
+        -installrepo)
+            installrepo=true
             shift
             ;;
         -no)
@@ -198,11 +203,14 @@ if $no; then
     echo "Skip sudo.sh file"
 fi
 
+if $installrepo; then
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+sudo ln -sf ~/bin/repo /usr/bin/repo
+fi
+
 if $setuptwrp; then
     sudo apt update
     sudo apt upgrade
     sudo apt install bc build-essential zip curl libstdc++6 git wget python-is-python3 python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make
-    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-    chmod a+x ~/bin/repo
-    sudo ln -sf ~/bin/repo /usr/bin/repo
 fi
