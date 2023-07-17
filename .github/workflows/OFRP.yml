@@ -43,7 +43,7 @@ on:
       DEVICE_TREE_BRANCH:
         description: 'Device Tree Branch'
         required: true
-        default: 'master'
+        default: 'TWRP'
       BRAND:
         description: 'Brand'
         required: true
@@ -75,23 +75,20 @@ on:
           - 'adbd boot'
 jobs:
   OrangeFox-Recovery-Project:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Free up space
-        run: bash sh/freeupspace.sh -yes
+      - name: Run sudo.sh
+        run: bash sh/sudo.sh -freespace -setuptwrp -installrepo
 
       - name: Set up the Compilation environment
         run: |
-          export REPO=$(mktemp /tmp/repo.XXXXXXXXX)
-          curl -o ${REPO} https://storage.googleapis.com/git-repo-downloads/repo
-          gpg --recv-key 8BB9AD793E8E6153AF0F9A4416530D5E920F5C65
-          curl -s https://storage.googleapis.com/git-repo-downloads/repo.asc | gpg --verify - ${REPO} && install -m 755 ${REPO} ~/bin/repo
-          sudo apt-get -y install bc build-essential zip curl libstdc++6 git wget python-is-python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make repo
+          mkdir ~/ofrp
+          cd ~/ofrp
           git clone https://gitlab.com/OrangeFox/misc/scripts
           cd scripts
           sudo bash setup/android_build_env.sh
@@ -100,7 +97,6 @@ jobs:
 
       - name: Sync Minimal Manifest
         run: |
-          mkdir ~/ofrp
           cd ~/ofrp
           git clone https://gitlab.com/OrangeFox/sync.git
 
@@ -121,7 +117,8 @@ jobs:
           export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=1
           export LC_ALL="C"
           ${{ inputs.ADD_EXPORT }}
-          lunch ${{ inputs.MAKEFILE_TYPE }}_${{ inputs.DEVICE_CODE }}-eng && mka ${{ inputs.BUILD_TARGET }}image
+          lunch ${{ inputs.MAKEFILE_TYPE }}_${{ inputs.DEVICE_CODE }}-eng
+          mka ${{ inputs.BUILD_TARGET }}image
         continue-on-error: true
 
       - name: Rename File 
