@@ -200,6 +200,7 @@ fi
 
 if $setuptwrp; then
     sudo apt update
+    sudo apt upgrade
     sudo apt install bc build-essential zip curl libstdc++6 git wget python-is-python3 python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make
     curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
     chmod a+x ~/bin/repo
