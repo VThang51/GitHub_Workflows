@@ -1,4 +1,11 @@
 # GitHub_Workflows
-You need to have an understanding of what you are about to do. Then you will understand the terms in `workflow_dispatch`
 
-(Or rather, I'm lazy to write tutorials, I'll probably do it in the future :) )
+## List
+- [x] General
+- [ ] TeamWin-RP Builder
+- [ ] OrangeFox-RP Builder
+- [ ] Pitchplack-RP Builder
+- [ ] SkyHawk-RP Builder
+- [ ] RedWolf-RP Builder
+- [ ] [KernelSU](https://github.com/tiann/KernelSU) Integrator
+
