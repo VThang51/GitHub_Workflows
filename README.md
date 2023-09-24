@@ -4,10 +4,10 @@
 | Name | Status | User Manual | Created by |
 | :--- | :----: | :---------: | :----------|
 | GithubWorkflows | Complete |  |  |
-| TeamWin-RP Builder | Fixing Bugs | [Click Here](https://github.com/VThang51/GitHub_Workflows/blob/main/UM/TWRP.md) |  |
+| Kernel Builder | Not Created |  |  |
+| KernelSU Integrator | Not Created |  |  |
 | OrangeFox-RP Builder | Fixing Bugs |  |  |
 | Pitchplack-RP Builder | Fixing Bugs |  |  |
-| SkyHawk-RP Builder | Fixing Bugs |  |  |
 | RedWolf-RP Builder | Fixing Bugs |  |  |
-| KernelSU Integrator | Not Created |  |  |
-| Kernel Builder | Not Created |  |  |
+| TeamWin-RP Builder | Fixing Bugs | [Click Here](https://github.com/VThang51/GitHub_Workflows/blob/main/UM/TWRP.md) |  |
+| SkyHawk-RP Builder | Fixing Bugs |  |  |
