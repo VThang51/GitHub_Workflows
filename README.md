@@ -1,8 +1,9 @@
 # GitHub_Workflows
 
 ## List
-| Name | Status | User Manual | Created by |
-| :--- | :----: | :---------: | :----------|
+| Name Workflows | Status | User Manual / Note | Created by |
+| :--- | :----: | :----------------: | :----------|
+| Boot Warning Remover | Not Created |  |  |
 | GithubWorkflows | Complete |  |  |
 | Kernel Builder | Not Created |  |  |
 | KernelSU Integrator | Not Created |  |  |
