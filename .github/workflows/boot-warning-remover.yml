@@ -30,7 +30,7 @@ jobs:
           cp letter.jpg svb_orange.jpg
           
       - name: Create patched "up_param.bin" file
-        run |
+        run: |
           cd BWR
           tar -cvf up_param.bin *
           tar -cvf Remove-Boot-Warning.tar up_param.bin
