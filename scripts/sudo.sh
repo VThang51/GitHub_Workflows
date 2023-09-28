@@ -2,7 +2,7 @@
 
 freespace=false
 installrepo=false
-no=false
+skip=false
 setuptwrp=false
 
 while [[ $# -gt 0 ]]; do
@@ -16,8 +16,8 @@ while [[ $# -gt 0 ]]; do
             installrepo=true
             shift
             ;;
-        -no)
-            no=true
+        -skip)
+            skip=true
             shift
             ;;
         -setuptwrp)
@@ -199,7 +199,7 @@ if $freespace; then
   df -h
 fi
 
-if $no; then
+if $skip; then
     echo "Skip sudo.sh file"
 fi
 
