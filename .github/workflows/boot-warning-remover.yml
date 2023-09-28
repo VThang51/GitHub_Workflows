@@ -1,0 +1,42 @@
+name: Boot Warning Remover
+on:
+  workflow_dispatch:
+    inputs:
+      UP_PARAM:
+        description: 'Download link "up_param.bin"'
+        required: true
+jobs:
+  Removing Boot Warning:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+          
+      - name: Download "up_param.bin"
+        run: |
+          mkdir BWR
+          cd BWR
+          wget -O up_param.bin ${{ inputs.UP_PARAM }}
+          
+      - name: Patching "up_param.bin"
+        run: |
+          cd BWR
+          tar -xvf up_param.bin
+          rm up_param.bin
+          rm booting_warning.jpg
+          rm svb_orange.jpg
+          cp letter.jpg svb_orange.jpg
+          
+      - name: Create patched "up_param.bin" file
+        run |
+          cd BWR
+          tar -cvf up_param.bin *
+          tar -cvf Remove-Boot-Warning.tar up_param.bin
+
+      - name: Upload to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Remove-Boot-Warning 
+          path: BWR/Remove-Boot-Warning.tar
