@@ -213,5 +213,5 @@ fi
 if $setuptwrp; then
     sudo apt update
     sudo apt upgrade
-    sudo apt install bc build-essential zip curl libstdc++6 git wget python-is-python3 python2 gcc clang libssl-dev rsync flex bison aria2 openjdk-8-jdk make
+    sudo apt-get install git-core gnupg flex bison build-essential zip curl zlib1g-dev libc6-dev-i386 libncurses5 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip fontconfig
 fi
