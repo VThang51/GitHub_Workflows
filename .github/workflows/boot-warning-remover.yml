@@ -6,7 +6,7 @@ on:
         description: 'Download link "up_param.bin"'
         required: true
 jobs:
-  Removing Boot Warning:
+  Removing-Boot-Warning:
     runs-on: ubuntu-20.04
     permissions:
       contents: write
