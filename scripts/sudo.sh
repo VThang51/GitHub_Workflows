@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Usage: bash sudo.sh -freespace -setuptwrp
+
 freespace=false
 installrepo=false
 skip=false
