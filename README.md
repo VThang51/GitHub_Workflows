@@ -2,9 +2,9 @@
 
 ## List
 | Name Workflows | Status | User Manual / Note | Created by |
-| :--- | :----: | :----------------: | :----------|
-| Boot Warning Remover | Not Created |  |  |
-| GithubWorkflows | Complete |  |  |
+| :------------: | :----: | :----------------: | :--------- |
+| Boot Warning Remover | Completed |  |  |
+| GithubWorkflows | Completed |  |  |
 | Kernel Builder | Not Created |  |  |
 | KernelSU Integrator | Not Created |  |  |
 | OrangeFox-RP Builder | Fixing Bugs |  |  |
