@@ -4,11 +4,11 @@
 | Name Workflows | Status | User Manual / Note | Created by |
 | :------------: | :----: | :----------------: | :--------- |
 | Boot Warning Remover | Completed |  |  |
-| GithubWorkflows | Completed |  |  |
+| Github Workflows | Completed |  |  |
 | Kernel Builder | Not Created |  |  |
 | KernelSU Integrator | Not Created |  |  |
-| OrangeFox-RP Builder | Fixing Bugs |  |  |
-| Pitchplack-RP Builder | Fixing Bugs |  |  |
-| RedWolf-RP Builder | Fixing Bugs |  |  |
-| TeamWin-RP Builder | Fixing Bugs | [Click Here](https://github.com/VThang51/GitHub_Workflows/blob/main/UM/TWRP.md) |  |
-| SkyHawk-RP Builder | Fixing Bugs |  |  |
+| OFR Builder | Fixing Bugs |  |  |
+| PBRP Builder | Fixing Bugs |  |  |
+| RWRP Builder | Fixing Bugs |  |  |
+| TWRP Builder | Fixing Bugs | [Click Here](https://github.com/VThang51/GitHub_Workflows/blob/main/UM/TWRP.md) |  |
+| SHRP Builder | Fixing Bugs |  |  |
