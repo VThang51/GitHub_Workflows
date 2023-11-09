@@ -54,7 +54,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-
+        
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@v1.3.1
+            
       - name: Running Command
         run: ${{ inputs.CM }}
         continue-on-error: true
