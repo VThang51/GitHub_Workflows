@@ -2,36 +2,36 @@ name: GitHub Workflows
 on:
   workflow_dispatch:
     inputs:
-      CM1:
-        description: 'Command 1'
+      CM:
+        description: 'Enter Command'
+        required: true
+        default: ''
+      OF1:
+        description: 'Output File 1'
         required: false
         default: ''
-      CM2:
-        description: 'Command 2'
+      OF2:
+        description: 'Output File 2'
         required: false
         default: ''
-      CM3:
-        description: 'Command 3'
+      OF3:
+        description: 'Output File 3'
         required: false
         default: ''
-      CM4:
-        description: 'Command 4'
+      OF4:
+        description: 'Output File 4'
         required: false
         default: ''
-      CM5:
-        description: 'Command 5'
+      OF5:
+        description: 'Output File 5'
         required: false
         default: ''
-      CM6:
-        description: 'Command 6'
+      OF6:
+        description: 'Output File 6'
         required: false
         default: ''
-      CM7:
-        description: 'Command 7'
-        required: false
-        default: ''
-      OF:
-        description: 'Output File'
+      OF7:
+        description: 'Output File 7'
         required: false
         default: ''
 jobs:
@@ -55,36 +55,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Running Command 1
-        run: ${{ inputs.CM1 }}
-        continue-on-error: true
-
-      - name: Running Command 2
-        run: ${{ inputs.CM2 }}
-        continue-on-error: true
-        
-      - name: Running Command 3
-        run: ${{ inputs.CM3 }}
-        continue-on-error: true
-
-      - name: Running Command 4
-        run: ${{ inputs.CM4 }}
-        continue-on-error: true
-
-      - name: Running Command 5
-        run: ${{ inputs.CM5 }}
-        continue-on-error: true
-
-      - name: Running Command 6
-        run: ${{ inputs.CM6 }}
-        continue-on-error: true
-
-      - name: Running Command 7
-        run: ${{ inputs.CM7 }}
+      - name: Running Command
+        run: ${{ inputs.CM }}
         continue-on-error: true
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: Exported File
-          path: /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF }}
+          path: |
+            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF1 }}
+            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF2 }}
+            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF3 }
+            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF4 }}
+            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF5 }}
+            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF6 }}
+            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF7 }}
