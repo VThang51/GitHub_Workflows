@@ -2,14 +2,6 @@ name: GitHub Workflows
 on:
   workflow_dispatch:
     inputs:
-      ERROR:
-        description: 'Keep running when command fails?'
-        required: true
-        default: 'true'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
       CM1:
         description: 'Command 1'
         required: false
@@ -65,31 +57,31 @@ jobs:
 
       - name: Running Command 1
         run: ${{ inputs.CM1 }}
-        continue-on-error: ${{ inputs.ERROR }}
+        continue-on-error: true
 
       - name: Running Command 2
         run: ${{ inputs.CM2 }}
-        continue-on-error: ${{ inputs.ERROR }}
+        continue-on-error: true
         
       - name: Running Command 3
         run: ${{ inputs.CM3 }}
-        continue-on-error: ${{ inputs.ERROR }}
+        continue-on-error: true
 
       - name: Running Command 4
         run: ${{ inputs.CM4 }}
-        continue-on-error: ${{ inputs.ERROR }}
+        continue-on-error: true
 
       - name: Running Command 5
         run: ${{ inputs.CM5 }}
-        continue-on-error: ${{ inputs.ERROR }}
+        continue-on-error: true
 
       - name: Running Command 6
         run: ${{ inputs.CM6 }}
-        continue-on-error: ${{ inputs.ERROR }}
+        continue-on-error: true
 
       - name: Running Command 7
         run: ${{ inputs.CM7 }}
-        continue-on-error: ${{ inputs.ERROR }}
+        continue-on-error: true
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
