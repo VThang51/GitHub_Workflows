@@ -67,10 +67,10 @@ jobs:
         with:
           name: Exported File
           path: |
-            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF1 }}
-            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF2 }}
-            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF3 }}
-            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF4 }}
-            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF5 }}
-            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF6 }}
-            /home/runner/work/GitHub_Workflows/GitHub_Workflows/${{ inputs.OF7 }}
+            ${{ inputs.OF1 }}
+            ${{ inputs.OF2 }}
+            ${{ inputs.OF3 }}
+            ${{ inputs.OF4 }}
+            ${{ inputs.OF5 }}
+            ${{ inputs.OF6 }}
+            ${{ inputs.OF7 }}
