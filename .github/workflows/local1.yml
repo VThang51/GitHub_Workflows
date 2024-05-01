@@ -37,6 +37,7 @@ jobs:
     - name: Building Kernel
       run: |
         cd kernel
+        sudo chmod 755 build_kernel.sh
         ./build_kernel.sh
 
     - uses: actions/upload-artifact@v4
