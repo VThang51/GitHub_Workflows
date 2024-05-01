@@ -45,4 +45,5 @@ jobs:
         name: Exported File
         path: |
           kernel/arch/arm64/boot/Image
+          kernel/arch/arm64/boot/Image.gz
           kernel/drivers/*/*.ko
