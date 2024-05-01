@@ -18,22 +18,27 @@ jobs:
         large-packages: true
         docker-images: true
         swap-storage: true
+
     - name: Setup Environment
       run: |
-      sudo apt update
-      sudo apt install git make bison flex
+        sudo apt update
+        sudo apt install git make bison flex
+
     - name: Clone Kernel Source
       run: |
         git clone https://github.com/VThang51/android_kernel_samsung_a13xx.git -b A135FXXU5DXA4_SWA kernel
+
     - name: Clone Toolchain
       run: |
         cd kernel
         git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 -b android-msm-redbull-4.19-android14 toolchain/clang/host/linux-x86
         git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-msm-redbull-4.19-android14 toolchain/gcc/linux-x86/aarch64/aarch64-linux-android-4.9
+
     - name: Building Kernel
       run: |
         cd kernel
         build_kernel.sh
+
     - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
         with:
