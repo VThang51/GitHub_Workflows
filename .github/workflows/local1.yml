@@ -1,4 +1,4 @@
-name: Free Disk Space (Ubuntu)
+name: Kernel Builder
 on: push
 jobs:
   Buiding-Kernel:
@@ -40,8 +40,8 @@ jobs:
         build_kernel.sh
 
     - uses: actions/upload-artifact@v4
-        with:
-          name: Exported File
-          path: |
-            kernel/arch/arm64/boot/Image
-            kernel/drivers/*/*.ko
+      with:
+        name: Exported File
+        path: |
+          kernel/arch/arm64/boot/Image
+          kernel/drivers/*/*.ko
