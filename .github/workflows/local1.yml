@@ -26,7 +26,7 @@ jobs:
 
     - name: Clone Kernel Source
       run: |
-        git clone https://github.com/VThang51/android_kernel_samsung_a13xx.git -b A135FXXU5DXA4_SWA kernel
+        git clone https://github.com/VThang51/android_kernel_samsung_a13xx.git -b VThang51-patch-touchfix kernel
 
     - name: Clone Toolchain
       run: |
