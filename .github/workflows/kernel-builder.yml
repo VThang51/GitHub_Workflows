@@ -12,6 +12,7 @@ on:
         default: 'https://github.com/VThang51/android_kernel_samsung_a13xx'
       KERNEL_BRANCH:
         description: 'Kernel Source Branch'
+        required: false
         default: 'A135FXXU5DXA4_SWA'
 jobs:
   Buiding-Kernel:
@@ -53,9 +54,9 @@ jobs:
       - name: Building Kernel
         run: |
           cd android-kernel
-          . build/build.sh
+          build/build.sh
 
       - uses: actions/upload-artifact@v4
         with:
           name: KernelImage
-          path: out/${{ inputs.MANIFEST_BRANCH }}/dist
+          path: android-kernel/out/${{ inputs.MANIFEST_BRANCH }}/dist
