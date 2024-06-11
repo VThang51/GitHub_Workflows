@@ -14,7 +14,6 @@ on:
         description: 'Kernel Source Branch'
         required: true
         default: 'A135FXXU5DXA4_SWA'
-
 jobs:
   Buiding-Kernel:
     runs-on: ubuntu-latest
