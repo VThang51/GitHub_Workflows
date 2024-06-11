@@ -43,6 +43,8 @@ jobs:
       - name: Download Sources and Build Tools
         run: |
           mkdir android-kernel && cd android-kernel
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
           repo init -u https://android.googlesource.com/kernel/manifest -b ${{ inputs.MANIFEST_BRANCH }}
           repo sync
 
