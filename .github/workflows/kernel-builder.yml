@@ -1,0 +1,62 @@
+name: Kernel Builder
+on:
+  workflow_dispatch:
+    inputs:
+      MANIFEST_BRANCH:
+        description: 'Manifest Branch'
+        required: true
+        default: 'common-android-4.19-stable'
+      KERNEL_URL:
+        description: 'Kernel Source URL'
+        required: true
+        default: 'https://github.com/VThang51/android_kernel_samsung_a13xx'
+      KERNEL_BRANCH:
+        description: 'Kernel Source Branch
+        default: 'A135FXXU5DXA4_SWA'
+
+jobs:
+  Buiding-Kernel:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        # this might remove tools that are actually needed,
+        # if set to "true" but frees about 6 GB
+        tool-cache: false
+        # all of these default to true, but feel free to set to
+        # "false" if necessary for your workflow
+        android: true
+        dotnet: true
+        haskell: true
+        large-packages: true
+        docker-images: true
+        swap-storage: true
+
+      - name: Install Repo
+        run: |
+          mkdir -p ~/.bin
+          PATH="${HOME}/.bin:${PATH}"
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+          chmod a+rx ~/.bin/repo
+
+      - name: Download Sources and Build Tools
+        run: |
+          mkdir android-kernel && cd android-kernel
+          repo init -u https://android.googlesource.com/kernel/manifest -b ${{ inputs.MANIFEST_BRANCH }}
+          repo sync
+
+      - name: Clone Kernel Source
+        run: |
+          cd android-kernel
+          git clone https://github.com/VThang51/android_kernel_samsung_a13xx -b A135FXXU5DXA4_SWA common
+
+      - name: Building Kernel
+        run: |
+          cd android-kernel
+          . build/build.sh
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: KernelImage
+        path: out/${{ inputs.MANIFEST_BRANCH }}/dist
