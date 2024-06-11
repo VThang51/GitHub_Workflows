@@ -12,6 +12,7 @@ on:
         default: 'https://github.com/VThang51/android_kernel_samsung_a13xx'
       KERNEL_BRANCH:
         description: 'Kernel Source Branch'
+        required: true
         default: 'A135FXXU5DXA4_SWA'
 
 jobs:
